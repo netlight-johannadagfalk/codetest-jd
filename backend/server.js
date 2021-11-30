@@ -7,7 +7,8 @@ const app = express();
 
 app.use(cors());
 const corsOptions = {
-  origin: 'http://localhost:3000'
+  origin: 'http://localhost:3000',
+  build: 'https://codetest-xkcd.netlify.app/'
 };
 
 app.get(`/getData/:id`, cors(corsOptions), async (req, res) => {

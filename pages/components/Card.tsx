@@ -18,8 +18,8 @@ const Card: React.FC<Props> = ({ item, index, handleCurrent }) => {
         <img src={item?.img} style={{ width: '100%', height: '50px' }} />
         <h2>
           {item?.title.length > maxChar
-            ? item.title.substring(0, maxChar) + '...'
-            : item.title}
+            ? item?.title.substring(0, maxChar) + '...'
+            : item?.title}
         </h2>
         <p>See more &rarr;</p>
       </ul>
