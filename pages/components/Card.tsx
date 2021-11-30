@@ -7,6 +7,7 @@ interface Props {
   handleCurrent: (item: Strip) => void;
 }
 const Card: React.FC<Props> = ({ item, index, handleCurrent }) => {
+  const maxChar = 15;
   return (
     <div key={index}>
       <ul
@@ -15,7 +16,11 @@ const Card: React.FC<Props> = ({ item, index, handleCurrent }) => {
         onClick={() => handleCurrent(item)}
       >
         <img src={item?.img} style={{ width: '100%', height: '50px' }} />
-        <h2>{item?.title}</h2>
+        <h2>
+          {item?.title.length > maxChar
+            ? item.title.substring(0, maxChar) + '...'
+            : item.title}
+        </h2>
         <p>See more &rarr;</p>
       </ul>
     </div>
