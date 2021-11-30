@@ -10,14 +10,10 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>EMBARK codetest</title>
+        <title>Codetest</title>
       </Head>
       <main className={styles.main}>
-        <Header
-          title="EMBARK CODETEST"
-          link="https://xkcd.com/"
-          linkTitle="XKCD"
-        />
+        <Header title="CODETEST" link="https://xkcd.com/" linkTitle="XKCD" />
         <DataTable />
       </main>
       <Footer text={'by Johanna Dagfalk'} />

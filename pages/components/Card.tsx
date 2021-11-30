@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from '../../styles/Home.module.css';
 
 interface Props {
@@ -15,8 +13,8 @@ const Card: React.FC<Props> = ({ item, index, handleCurrent }) => {
         style={{ width: '200px', height: '200px' }}
         onClick={() => handleCurrent(item)}
       >
-        <img src={item.img} style={{ width: '100%', height: '50px' }} />
-        <h2>{item.title}</h2>
+        <img src={item?.img} style={{ width: '100%', height: '50px' }} />
+        <h2>{item?.title}</h2>
         <p>See more &rarr;</p>
       </ul>
     </div>

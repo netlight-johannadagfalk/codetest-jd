@@ -90,7 +90,7 @@ const DataTable: React.FC = () => {
       <div className={styles.grid}>
         {!isLoading &&
           pageItems.length > 0 &&
-          pageItems.map((item: any, index: number) => (
+          pageItems.map((item: Strip, index: number) => (
             <Card
               item={item}
               key={index}

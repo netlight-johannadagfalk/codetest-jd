@@ -1,7 +1,3 @@
-import React from 'react';
-
-import styles from '../../styles/Home.module.css';
-
 interface Props {
   text: string;
   onClick: any;
