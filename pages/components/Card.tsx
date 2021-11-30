@@ -1,9 +1,10 @@
 import styles from '../../styles/Home.module.css';
+import { Strip } from './DataTable';
 
 interface Props {
-  item: any;
+  item: Strip;
   index: number;
-  handleCurrent: any;
+  handleCurrent: (item: Strip) => void;
 }
 const Card: React.FC<Props> = ({ item, index, handleCurrent }) => {
   return (

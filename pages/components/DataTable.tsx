@@ -7,7 +7,7 @@ import Button from './Button';
 
 import styles from '../../styles/Home.module.css';
 
-interface Strip {
+export interface Strip {
   month: string;
   num: number;
   link: string;
@@ -25,8 +25,8 @@ const DataTable: React.FC = () => {
   const [current, setCurrent] = useState<Strip>();
   const [pageItems, setPageItems] = useState<Strip[]>([]);
   const [page, setPage] = useState<number>(1);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<Error | null>(null);
   const router = useRouter();
 
   const getData = async (URL: string) => {
@@ -60,7 +60,7 @@ const DataTable: React.FC = () => {
   };
 
   const nextPage = (array: number[]) => {
-    array.map(async (item: any) => {
+    array.map(async (item: number) => {
       const newElement = await getData(`http://localhost:8080/getData/${item}`);
       setPageItems((oldArray: any) => [...oldArray, newElement]);
     });
