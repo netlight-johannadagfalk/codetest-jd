@@ -7,12 +7,16 @@ const app = express();
 
 app.use(cors());
 const corsOptions = {
-  origin: ['https://codetest-xkcd.netlify.app/']
+  origin: ['http://localhost:3000', 'https://codetest-xkcd.netlify.app/']
 };
 
 app.get(`/getData/:id`, cors(corsOptions), async (req, res) => {
   const fetchOptions = {
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    mode: 'no-cors'
   };
   const response = await fetch(
     `https://xkcd.com/${req.params.id}/info.0.json`,
