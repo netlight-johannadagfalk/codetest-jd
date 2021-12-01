@@ -1,14 +1,6 @@
 {
   "/_app": "pages/_app.js",
-  "/api/hello": "pages/api/hello.js",
-  "/components/Button": "pages/components/Button.html",
-  "/components/Card": "pages/components/Card.html",
-  "/components/DataTable": "pages/components/DataTable.html",
-  "/components/Footer": "pages/components/Footer.html",
-  "/components/Header": "pages/components/Header.html",
-  "/components/InspectCard": "pages/components/InspectCard.html",
-  "/": "pages/index.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/": "pages/index.js"
 }

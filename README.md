@@ -9,7 +9,7 @@ This is a Next.js project created with create-next-app and a typescript template
 Run the development server with auto-updates on edit (port 3000):
 npm run dev
 
-Run the express server middleware (port 8080):
+Run the express server middleware from the folder 'backend' (port 8080):
 node server.js
 
 ## Deployment
