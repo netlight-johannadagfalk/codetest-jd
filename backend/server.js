@@ -5,12 +5,12 @@ import fetch from 'node-fetch';
 const PORT = 8080;
 const app = express();
 
-app.use(cors());
-const corsOptions = {
-  origin: ['http://localhost:3000', 'https://codetest-xkcd.netlify.app/']
-};
+// app.use(cors());
+// const corsOptions = {
+//   origin: ['http://localhost:3000', 'https://codetest-xkcd.netlify.app/']
+// };
 
-app.get(`/getData/:id`, cors(corsOptions), async (req, res) => {
+app.get(`/getData/:id`, async (req, res) => {
   const fetchOptions = {
     method: 'GET',
     headers: {
