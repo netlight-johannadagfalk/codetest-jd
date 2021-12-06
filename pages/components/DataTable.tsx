@@ -1,11 +1,11 @@
-import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useRouter } from 'next/router';
 import Card from './Card';
 import InspectCard from './InspectCard';
-import { useRouter } from 'next/router';
 import Button from './Button';
-
+import useHttp from './hooks/use-http';
 import styles from '../../styles/Home.module.css';
+import handler from '../api/hello';
 
 export interface Strip {
   month: string;
@@ -21,6 +21,12 @@ export interface Strip {
   day: number;
 }
 
+export interface HttpResponse {
+  isLoading: boolean;
+  error: any;
+  sendRequest: any;
+}
+
 const DataTable: React.FC = () => {
   const [current, setCurrent] = useState<Strip>();
   const [pageItems, setPageItems] = useState<Strip[]>([]);
@@ -29,40 +35,11 @@ const DataTable: React.FC = () => {
   const [error, setError] = useState<Error | null>(null);
   const router = useRouter();
 
-  const getData = async (URL: string) => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(URL);
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error('Something went wrong');
-      }
-      const transformedData: Strip = {
-        month: data.number,
-        num: data.num,
-        link: data.link,
-        year: data.year,
-        news: data.news,
-        safe_title: data.safe_title,
-        transcript: data.transcript,
-        alt: data.alt,
-        img: data.img,
-        title: data.title,
-        day: data.day
-      };
-      setIsLoading(false);
-      return transformedData;
-    } catch (error: any) {
-      setError(error);
-    }
-  };
-
-  const nextPage = (array: number[]) => {
+  const nextPage = (array: number[], transformStrip: any) => {
     array.map(async (item: number) => {
-      const newElement = await getData(`http://localhost:8080/getData/${item}`);
-      setPageItems((oldArray: any) => [...oldArray, newElement]);
+      const URL = `http://localhost:8080/getData/${item}`;
+
+      httpRes.sendRequest({ url: URL }, transformStrip);
     });
     setPage(page + 1);
   };
@@ -81,11 +58,35 @@ const DataTable: React.FC = () => {
     router.push(`/?id:${item.num}`, undefined, { shallow: true });
   };
 
+  const httpRes: HttpResponse = useHttp();
+
+  const transformStrip = useCallback((data: any) => {
+    const transformedData: Strip = {
+      month: data.number,
+      num: data.num,
+      link: data.link,
+      year: data.year,
+      news: data.news,
+      safe_title: data.safe_title,
+      transcript: data.transcript,
+      alt: data.alt,
+      img: data.img,
+      title: data.title,
+      day: data.day
+    };
+    setPageItems((oldArray: any) => [...oldArray, transformedData]);
+  }, []);
+
+  useEffect(() => {
+    nextPage(itemsArray(page), transformStrip);
+  }, []);
+
   return (
     <>
       {current && <InspectCard current={current} />}
 
       {!isLoading && pageItems.length === 0 && <p>No items found</p>}
+      {error && <p>{error}</p>}
       {isLoading && <p> Loading...</p>}
       <div className={styles.grid}>
         {!isLoading &&
@@ -102,7 +103,7 @@ const DataTable: React.FC = () => {
 
       <Button
         text={'LOAD MORE DATA'}
-        onClick={() => nextPage(itemsArray(page))}
+        onClick={() => nextPage(itemsArray(page), transformStrip)}
       />
     </>
   );

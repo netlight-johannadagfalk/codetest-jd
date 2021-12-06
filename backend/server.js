@@ -5,16 +5,17 @@ import fetch from 'node-fetch';
 const PORT = 8080;
 const app = express();
 
-// app.use(cors());
-// const corsOptions = {
-//   origin: ['http://localhost:3000', 'https://codetest-xkcd.netlify.app/']
-// };
+app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:3000'
+};
 
-app.get(`/getData/:id`, async (req, res) => {
+app.get(`/getData/:id`, cors(corsOptions), async function (req, res) {
   const fetchOptions = {
     method: 'GET',
     headers: {
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json'
     },
     mode: 'no-cors'
   };
