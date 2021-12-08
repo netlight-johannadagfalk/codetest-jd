@@ -1,0 +1,1 @@
+{"c":["webpack"],"r":["pages/strips/[stripId]"],"m":["./components/Button.tsx","./components/InspectCard.tsx","./hooks/use-http.tsx","./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fstrips%2F%5BstripId%5D&absolutePagePath=%2FUsers%2Fjdag%2FDesktop%2Fembark-codetest%2Fpages%2Fstrips%2F%5BstripId%5D.tsx!","./pages/strips/[stripId].tsx"]}

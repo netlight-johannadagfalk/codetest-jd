@@ -1,8 +1,6 @@
 import type { NextPage } from 'next';
-import Link from 'next/link';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import Footer from '../components/Footer';
 
 const HomePage: NextPage = () => {
   return (
@@ -10,8 +8,7 @@ const HomePage: NextPage = () => {
       <Head>
         <title>Codetest</title>
       </Head>
-
-      <Footer text={'by Johanna Dagfalk'} />
+      <h1 className={styles.main}>This is my startpage</h1>
     </div>
   );
 };

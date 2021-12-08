@@ -96,3 +96,9 @@
   font-size: 1.25rem;
   line-height: 1.5;
 }
+
+.backButton {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+}
