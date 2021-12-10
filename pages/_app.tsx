@@ -9,11 +9,11 @@ configureStore();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AuthContextProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </AuthContextProvider>
+    // <AuthContextProvider>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+    // </AuthContextProvider>
   );
 }
 

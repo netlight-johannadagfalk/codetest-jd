@@ -30,30 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/fav": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/fav.js"
-    ],
     "/fav/favorites": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/fav/favorites.js"
-    ],
-    "/fav/products": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/fav/products.js"
-    ],
-    "/strips": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/strips.js"
-    ],
-    "/strips/[stripId]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/strips/[stripId].js"
     ]
   },
   "ampFirstPages": []
